@@ -28,3 +28,6 @@ It was surprisingly difficult to figure out how summing and removing variables w
 - Perhaps we ought to go to OH to ask? Cuz honestly, I'm not sure how it works.
 
 Finished Q4
+
+
+<<<<<<<<{{{commit e8aee2c066e50883f870a196ee66e1f9df2fcd31}}}>>>>>>>>

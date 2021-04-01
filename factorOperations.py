@@ -197,6 +197,11 @@ def eliminateWithCallTracking(callTrackingList=None):
 
         # Getting and calculating the probabilities
         assignments = retFactor.getAllPossibleAssignmentDicts()
+        print("assignments:",assignments)
+        print("variablesDomainDict:", variablesDomainDict)
+        print("eliminationVariable:", eliminationVariable)
+        print("eliminated_values:", variablesDomainDict[eliminationVariable])
+        print("variablesDomainDict[eliminationVariable]:", variablesDomainDict[eliminationVariable])
         for assignment in assignments:
             probability = 0
             for eliminated_values in variablesDomainDict[eliminationVariable]:
@@ -264,6 +269,34 @@ def normalize(factor):
                             str(factor))
 
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    unconditioned_variables = list(factor.unconditionedVariables())
+    conditioned_variables = list(factor.conditionedVariables())
+    variablesDomainDict = factor.variableDomainsDict()
+
+    # print("unconditioned_variables:", unconditioned_variables)
+    # print("conditioned_variables:", conditioned_variables)
+    # print("variablesDomainDict:", variablesDomainDict)
+    # print()
+
+    # Generaaes our retFactor
+    retFactor_conditioned_varaibles = conditioned_variables \
+        + [i for i in unconditioned_variables if len(variableDomainsDict[i]) == 1]
+    retFactor_unconditioned_varaibles = [i for i in unconditioned_variables if i not in retFactor_conditioned_varaibles]
+    retFactor = Factor(retFactor_unconditioned_varaibles, retFactor_conditioned_varaibles, variablesDomainDict)
+
+    # Calculates the total probability for normalization purposes
+    # print(factor.getAllPossibleAssignmentDicts())
+    total_probablity = 0
+    for assignment_dict in factor.getAllPossibleAssignmentDicts():
+        # print("Probability of", assignment_dict, "is", factor.getProbability(assignment_dict))
+        total_probablity += factor.getProbability(assignment_dict)
+    
+    # Generates probabilites for our retFactor
+    for assignment in retFactor.getAllPossibleAssignmentDicts():
+        probability = factor.getProbability(assignment)
+        retFactor.setProbability(assignment, probability / total_probablity)
+    
+    # print("==============[I MADE IT HERE]==============\n")
+    return retFactor
     "*** END YOUR CODE HERE ***"
 
