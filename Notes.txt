@@ -6,3 +6,18 @@ Bugfixes in Q1
 - Forgot to add the edges between X,Y pos and the Ghost/Food houses
 
 Finished Q2
+
+
+<<<<<<<<<{{{commit 417d2f6880aacb900aa9d3e895b2e855c539c7d5}}}>>>>>>>>>
+I noticed a thing:
+- If a variable is unconditioned, it will always be on the unonditioned side
+- If a variable is conditioned, it will remain on the conditioned side
+- If in any of the factors, a variable is unconditioned, then the resulting factor
+  would have that variable in the unconditioned side.
+
+NOTE: Conditioned variables are on the right, Unconditioned variables are on the left.
+
+- Implemented the generation of the resulting factor
+    - Now I need to also implement acctually transferring over the probabilities
+
+Finished Q3
