@@ -21,3 +21,10 @@ NOTE: Conditioned variables are on the right, Unconditioned variables are on the
     - Now I need to also implement acctually transferring over the probabilities
 
 Finished Q3
+
+
+<<<<<<<<{{{commit e3dbe28132aa615ef738f9432b5a15e8be05e8fb}}}>>>>>>>>
+It was surprisingly difficult to figure out how summing and removing variables worked.
+- Perhaps we ought to go to OH to ask? Cuz honestly, I'm not sure how it works.
+
+Finished Q4
