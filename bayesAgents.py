@@ -111,10 +111,17 @@ def constructBayesNet(gameState):
             obsVar = OBS_VAR_TEMPLATE % obsPos
             obsVars.append(obsVar)
             variableDomainsDict[obsVar] = OBS_VALS
+    
+    # Adding the edges to the Bayes Net
+    edges.append((X_POS_VAR, GHOST_HOUSE_VAR))
+    edges.append((X_POS_VAR, FOOD_HOUSE_VAR))
+    edges.append((Y_POS_VAR, FOOD_HOUSE_VAR))
+    edges.append((Y_POS_VAR, GHOST_HOUSE_VAR))
 
     for obsVar in obsVars:
         edges.append((FOOD_HOUSE_VAR, obsVar))
         edges.append((GHOST_HOUSE_VAR, obsVar))
+    
 
     "*** END YOUR CODE HERE ***"
 
@@ -147,7 +154,12 @@ def fillYCPT(bayesNet, gameState):
 
     yFactor = bn.Factor([Y_POS_VAR], [], bayesNet.variableDomainsDict())
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    #marker
+    yFactor.setProbability({Y_POS_VAR: BOTH_TOP_VAL}, PROB_BOTH_TOP)
+    yFactor.setProbability({Y_POS_VAR: BOTH_BOTTOM_VAL}, PROB_BOTH_BOTTOM)
+    yFactor.setProbability({Y_POS_VAR: LEFT_TOP_VAL}, PROB_ONLY_LEFT_TOP)
+    yFactor.setProbability({Y_POS_VAR: LEFT_BOTTOM_VAL}, PROB_ONLY_LEFT_BOTTOM)
+    
     "*** END YOUR CODE HERE ***"
     bayesNet.setCPT(Y_POS_VAR, yFactor)
 

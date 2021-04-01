@@ -1,2 +1,8 @@
 <<<<<<<<{{{commit 5bed7d49eeb09a59d2c0783127ad83c1d2cea310}}}>>>>>>>>>
 Finished Q1
+
+<<<<<<<<{{{commit 553a7323e4817b9746060e2fbac79c928c73becd}}}>>>>>>>>>
+Bugfixes in Q1
+- Forgot to add the edges between X,Y pos and the Ghost/Food houses
+
+Finished Q2
