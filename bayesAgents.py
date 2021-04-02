@@ -154,7 +154,6 @@ def fillYCPT(bayesNet, gameState):
 
     yFactor = bn.Factor([Y_POS_VAR], [], bayesNet.variableDomainsDict())
     "*** YOUR CODE HERE ***"
-    #marker
     yFactor.setProbability({Y_POS_VAR: BOTH_TOP_VAL}, PROB_BOTH_TOP)
     yFactor.setProbability({Y_POS_VAR: BOTH_BOTTOM_VAL}, PROB_BOTH_BOTTOM)
     yFactor.setProbability({Y_POS_VAR: LEFT_TOP_VAL}, PROB_ONLY_LEFT_TOP)
@@ -291,7 +290,17 @@ def getMostLikelyFoodHousePosition(evidence, bayesNet, eliminationOrder):
     (This should be a very short method.)
     """
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    # P(queryVariables | evidenceDict)
+    from inference import inferenceByVariableElimination
+    factor = inferenceByVariableElimination(bayesNet, FOOD_HOUSE_VAR, evidence, eliminationOrder)
+    best_probability = 0
+    best_assignment = factor.getAllPossibleAssignmentDicts()[0]
+    for assignment in factor.getAllPossibleAssignmentDicts():
+        assignment_probability = factor.getProbability(assignment)
+        if assignment_probability > best_probability:
+            best_assignment = assignment
+            best_probability = assignment_probability
+    return best_assignment
     "*** END YOUR CODE HERE ***"
 
 

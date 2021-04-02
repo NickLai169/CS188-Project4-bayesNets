@@ -31,3 +31,15 @@ Finished Q4
 
 
 <<<<<<<<{{{commit e8aee2c066e50883f870a196ee66e1f9df2fcd31}}}>>>>>>>>
+Finished Q5
+
+
+<<<<<<<<{{{commit b249f2123a8385a37f9f020614b20d90bb56d3c3}}}>>>>>>>>
+Variable elimination:
+- For each variable in the elimination order list
+  - join all factors which include the variable
+  - eliminate the variable from the final joint factor by summation
+  - Update the new found factor to the running list of factors
+  - Repeat until no items remain in the elimination order
+
+Fininshed Q6 & 7
